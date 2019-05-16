@@ -1,0 +1,53 @@
+{% extends "base.html" %} 
+{% block content %}
+        <form id="form">
+                <div class="form-group row">
+
+                    <div class="col-12">
+                    <label>Title:</label>
+                    </div>
+                    <div class="col-12">
+                    <input  class="form-control" type="text" name="title" id="title" value="">
+                    </div>
+
+                </div>
+            
+            <div class="form-group row">
+            <div class="col-12">
+            <label>Content:</label>
+            </div>
+            <div class="col-12">
+            <textarea name="content" id="content" class="form-control" rows="15" cols="30" value="">
+            </textarea>
+            </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-6">
+                <input class="form-control" type="button" value="儲存" onclick="SavePost()">
+                </div>
+                <div class="col-6">
+                <input class="form-control" type="button" value="發佈" onclick="PublicPost()">
+                </div>
+            </div>
+        </form> 
+<script type="text/javascript">
+    function SavePost(){
+        var title = document.getElementById("title").value;
+        var content = document.getElementById("content").value;
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("Post", "/SavePost", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("title=" + title + "&content=" + content);
+    }
+
+    function PublicPost(){
+        var title = document.getElementById("title").value;
+        var content = document.getElementById("content").value;
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("Post", "/PublicPost", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("title=" + title + "&content=" + content);
+    }
+
+</script>
+{% endblock %}

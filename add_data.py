@@ -1,0 +1,31 @@
+from app import *
+from app.models import User, Post, Tag, Comment
+
+user1 = User(username='user1', password_hash='user1', permission=1)
+user2 = User(username='user2', password_hash='user2', permission=0)
+user3 = User(username='user3', password_hash='user3')
+db.session.add(user1)
+db.session.add(user2)
+db.session.add(user3)
+db.session.commit()
+u = User.query.get(1)
+post1 = Post(title='my first post', content='my first post!',tag='tag1,tag2,tag3', username=u)
+post2 = Post(title='my first post', content='my first post!',tag='tag2,tag3,tag4', username=u)
+db.session.add(post1)
+db.session.add(post2)
+db.session.commit()
+
+tag1 = Tag(tag='tag1')
+tag2 = Tag(tag='tag2')
+tag3 = Tag(tag='tag3')
+db.session.add(tag1)
+db.session.add(tag2)
+db.session.add(tag3)
+db.session.commit()
+
+p = Post.query.get(1)
+comment1 = Comment(content='nice', title=p, username=u)
+comment2 = Comment(content='nice', title=p, username=u)
+db.session.add(comment1)
+db.session.add(comment2)
+db.session.commit()

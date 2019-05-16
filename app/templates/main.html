@@ -1,0 +1,27 @@
+{% extends "base.html" %} 
+{% block content %}
+
+{%if posts %}
+{%for post in posts%}
+<div class="col-2"></div>
+<div class="col-8">
+<!-- <div class="jumbotron jumbotron-fluid">  -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+            <h1>{{ post.title }}</h1>
+            <br/>
+            <p>author:{{post.username.username}}</p>
+            <br/>
+            <p>{{post.datetime}}</p>
+            <br/>
+            <p>{{ post.content|safe}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- </div> -->
+<div class="col-2"></div>
+{%endfor%}
+{%endif%}
+{% endblock %}

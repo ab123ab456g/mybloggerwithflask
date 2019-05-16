@@ -1,0 +1,31 @@
+{% extends "base.html" %} 
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+        {%for i in range(11)%}
+
+            <div class="card">
+              <div class="card-body row">
+                    <div class="col-6">
+                    <h5 class="card-title ">article {{i}}, datetime {{i}} </h5>
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col-5">
+                    <a href="#" class="btn btn-primary">編輯</a>
+                    <a href="#" class="btn btn-primary">刪除</a>
+                    </div>
+              </div>
+        </div>
+      {% endfor %}
+
+        <div class="col-2"></div>
+
+    </div>
+</div>
+<ul>
+    <li><p>article 2, datetime 2 </p><a href="">編輯</a><a href="">刪除</a></li>
+    <li><p>article 3, datetime 3 <a href="">編輯</a><a href="">刪除</a></li>
+</ul>
+{% endblock %}
